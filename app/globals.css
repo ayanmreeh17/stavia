@@ -1,0 +1,52 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-cream text-charcoal font-body antialiased;
+    font-feature-settings: 'kern' 1;
+  }
+
+  h1, h2, h3, h4 {
+    @apply font-display;
+  }
+
+  /* Visible keyboard focus everywhere — accessibility floor */
+  :focus-visible {
+    outline: 2px solid #1B4332;
+    outline-offset: 2px;
+    border-radius: 2px;
+  }
+
+  ::selection {
+    background-color: #B8935F;
+    color: #FBFAF6;
+  }
+}
+
+@layer utilities {
+  /* Signature motif: a thin horizon hairline used under section eyebrows,
+     evoking a coastline — Stavia's recurring visual signature. */
+  .horizon-rule {
+    height: 1px;
+    background-image: linear-gradient(90deg, transparent, #B8935F 20%, #B8935F 80%, transparent);
+  }
+
+  .eyebrow {
+    @apply text-xs tracking-[0.2em] uppercase text-brass font-semibold;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
